@@ -56,7 +56,7 @@ Now with `lit-html` you can use `.js` and `.ts` extensions:
 ```js
 import { html } from 'lit-vue'
 
-const template = html`
+html`
   <div>
     <h1>hello</h1>
     <hr />
@@ -71,9 +71,6 @@ const template = html`
 `
 
 export default {
-  // `template` is not necessary here, just to make linter happy
-  // Actually its value is always `undefined`
-  template,
   data() {
     return {
       count: 0
@@ -86,6 +83,51 @@ export default {
   }
 }
 ```
+
+<details><summary>You might need to configure the ESLint rule: no-unused-expressions</summary><br>
+
+ESLint might complain about the the <code>html&#x60;&#x60;</code> expression not being used when you enabled the rule: [no-unused-expressions](http://eslint.cn/docs/rules/no-unused-expressions), there're three ways to solve it:
+
+1. Disable this rule for tagged template expression in your ESLint config
+
+```json
+{
+  "rules": {
+    "no-unused-expressions": ["error", { "allowTaggedTemplates": true }]
+  }
+}
+```
+
+2. Or export it
+
+```js
+export const template = html`
+  <div>{{ count }}</div>
+`
+```
+
+You can just assign it to a variable and export it, though the exported variable will never be used. The return value of `html` tag is always undefined.
+
+3. Or use it as component option
+
+```js
+const template = html`
+  <div>{{ count }}</div>
+`
+
+export default {
+  template,
+  data() {
+    return {
+      count: 0
+    }
+  }
+}
+```
+
+Similar to #2, this may look more natural because `template` is a legit Vue component option.
+
+</details>
 
 ## How to use
 
