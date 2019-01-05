@@ -1,0 +1,80 @@
+{
+  "name": "lit-vue",
+  "version": "0.0.0",
+  "description": "Using all the goodies of Vue SFC directly in JavaScript files.",
+  "main": "index.js",
+  "files": [
+    "lib",
+    "loader.js",
+    "index.js"
+  ],
+  "scripts": {
+    "test": "npm run lint && jest",
+    "lint": "xo",
+    "commit": "git-cz"
+  },
+  "repository": {
+    "url": "egoist/lit-vue",
+    "type": "git"
+  },
+  "author": "egoist<0x142857@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/generator": "^7.2.2",
+    "@babel/parser": "^7.2.3",
+    "@babel/traverse": "^7.2.3",
+    "posthtml": "^0.11.3"
+  },
+  "devDependencies": {
+    "commitizen": "^3.0.5",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-rem": "^4.0.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "husky": "^1.0.0-rc.13",
+    "jest": "^23.6.0",
+    "lint-staged": "^7.2.0",
+    "poi": "^12.2.14",
+    "prettier": "^1.15.2",
+    "semantic-release": "^15.13.2",
+    "vue": "^2.5.21",
+    "vue-template-compiler": "^2.5.21",
+    "xo": "^0.23.0"
+  },
+  "xo": {
+    "extends": [
+      "rem",
+      "plugin:prettier/recommended"
+    ],
+    "envs": [
+      "jest"
+    ],
+    "rules": {
+      "no-new": "off",
+      "unicorn/filename-case": "off"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "xo --fix",
+      "git add"
+    ],
+    "*.{json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "release": {
+    "branch": "master"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`simple 1`] = `
+"
+  <template>
+  
+  </template>
+
+  <script lang=\\"ts\\">
+  import html from 'lit-vue/html';
+const template: string = html\`
+  <div></div>
+  <style scoped>
+  div {
+    color: red;
+  }
+  </style>
+  \`;
+export default {
+  template
+};
+  </script>
+
+  
+    "
+`;
