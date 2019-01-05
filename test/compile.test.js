@@ -12,6 +12,10 @@ test('simple', async () => {
     color: red;
   }
   </style>
+
+  <custom-block name="i18n">
+  hello
+  </custom-block>
   \`
 
   export default {

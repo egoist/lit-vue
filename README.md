@@ -123,6 +123,26 @@ module.exports = {
 
 That's it, [all the goodies](https://vue-loader.vuejs.org/) of `.vue` SFC are available in your `.vue.js` and `.vue.ts` files now!
 
+### Custom blocks
+
+You can also use [custom blocks](https://vue-loader.vuejs.org/guide/custom-blocks.html) in the `html` tag:
+
+```js
+html`
+  <custom-block name="i18n"> { "en": {} } </custom-block>
+`
+```
+
+It will be converted to:
+
+```vue
+<i18n>
+{
+  "en": {}
+}
+</i18n>
+```
+
 ### Syntax higlighting
 
 To highlight the code inside `html` template tag, you can use following editor plugins:

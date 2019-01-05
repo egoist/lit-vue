@@ -23,7 +23,8 @@
   "dependencies": {
     "@babel/generator": "^7.2.2",
     "@babel/parser": "^7.2.3",
-    "@babel/traverse": "^7.2.3"
+    "@babel/traverse": "^7.2.3",
+    "stringify-attributes": "^1.0.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.2.3",
