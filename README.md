@@ -31,7 +31,6 @@ Previously you can use `.vue` single-file component like this:
 
 <script>
 export default {
-  template,
   data() {
     return {
       count: 0
@@ -55,7 +54,7 @@ h1 {
 Now with `lit-html` you can use `.js` and `.ts` extensions:
 
 ```js
-import html from 'lit-vue/html'
+import { html } from 'lit-vue'
 
 const template = html`
   <div>
@@ -72,6 +71,8 @@ const template = html`
 `
 
 export default {
+  // `template` is not necessary here, just to make linter happy
+  // Actually its value is always `undefined`
   template,
   data() {
     return {
@@ -97,7 +98,7 @@ module.exports = {
       {
         // Match .js .ts files
         test: [/\.[jt]s$/],
-        // Excude .vue.js .vue.ts files
+        // Exclude .vue.js .vue.ts files
         // Since we want lit-vue to transform them into Vue SFC instead
         exclude: [/\.vue.[jt]s/]
         loader: 'babel-loader' // Use your desired loader
