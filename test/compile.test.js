@@ -3,7 +3,7 @@ const compile = require('../lib/compile')
 test('simple', async () => {
   const result = await compile(
     `
-  import html from 'lit-vue/html'
+  import { html } from 'lit-vue'
 
   const template: string = html\`
   <div></div>
@@ -20,5 +20,6 @@ test('simple', async () => {
   `,
     'foo.ts'
   )
+
   expect(result).toMatchSnapshot()
 })

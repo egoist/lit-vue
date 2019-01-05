@@ -4,23 +4,22 @@ exports[`simple 1`] = `
 "
   <template>
   
+  <div></div>
+  
+  
   </template>
 
   <script lang=\\"ts\\">
-  import html from 'lit-vue/html';
-const template: string = html\`
-  <div></div>
-  <style scoped>
-  div {
-    color: red;
-  }
-  </style>
-  \`;
+  const template: string = undefined;
 export default {
   template
 };
   </script>
 
-  
+  <style scoped>
+  div {
+    color: red;
+  }
+  </style>
     "
 `;

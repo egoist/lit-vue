@@ -1,9 +1,10 @@
 // eslint-disable-next-line import/no-unresolved
 import { html } from 'lit-vue'
+import Welcome from './Welcome.vue'
 
 const template = html`
   <div>
-    <h1>hello</h1>
+    <Welcome name="Guest" />
     <hr />
     <button @click="inc">{{ count }}</button>
   </div>
@@ -26,5 +27,8 @@ export default {
     inc() {
       this.count++
     }
+  },
+  components: {
+    Welcome
   }
 }

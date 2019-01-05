@@ -11,7 +11,8 @@
   "scripts": {
     "test": "npm run lint && jest",
     "lint": "xo",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "example": "poi --config example/poi.config.js -so"
   },
   "repository": {
     "url": "egoist/lit-vue",
@@ -22,10 +23,10 @@
   "dependencies": {
     "@babel/generator": "^7.2.2",
     "@babel/parser": "^7.2.3",
-    "@babel/traverse": "^7.2.3",
-    "posthtml": "^0.11.3"
+    "@babel/traverse": "^7.2.3"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.2.3",
     "commitizen": "^3.0.5",
     "cz-conventional-changelog": "^2.1.0",
     "eslint-config-prettier": "^3.3.0",
@@ -38,6 +39,7 @@
     "prettier": "^1.15.2",
     "semantic-release": "^15.13.2",
     "vue": "^2.5.21",
+    "vue-class-component": "^6.3.2",
     "vue-template-compiler": "^2.5.21",
     "xo": "^0.23.0"
   },
@@ -52,7 +54,10 @@
     "rules": {
       "no-new": "off",
       "unicorn/filename-case": "off"
-    }
+    },
+    "ignores": [
+      "example/**"
+    ]
   },
   "husky": {
     "hooks": {
@@ -60,13 +65,18 @@
     }
   },
   "lint-staged": {
-    "*.js": [
-      "xo --fix",
-      "git add"
-    ],
-    "*.{json,md}": [
-      "prettier --write",
-      "git add"
+    "linters": {
+      "*.js": [
+        "xo --fix",
+        "git add"
+      ],
+      "*.{json,md}": [
+        "prettier --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "example/**"
     ]
   },
   "release": {
