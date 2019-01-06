@@ -4,9 +4,10 @@
 
 **Please consider [donating](https://www.patreon.com/egoist) to this project's author, [EGOIST](#author), to show your ❤️ and support.**
 
-## Introduction
+## Motivation
 
-All the features of `.vue` SFC are now available in your `.js` and `.ts` files.
+- Use all Vue SFC features in JavaScript / TypeScript files
+- Type-safe Vue templates ([#1](https://github.com/egoist/lit-vue/issues/1))
 
 Combine `vue-loader` and `lit-vue/loader` to make the dream come to reality.
 
