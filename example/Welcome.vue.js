@@ -2,7 +2,11 @@ import Vue from 'vue'
 import Component from 'vue-class-component'
 import { html } from 'lit-vue'
 
-html`<h1>{{ message }}</h1>`
+html`
+  <template>
+    <h1>{{ message }}</h1>
+  </template>
+`
 
 @Component({
   props: {

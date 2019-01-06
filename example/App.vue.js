@@ -3,11 +3,13 @@ import { html } from 'lit-vue'
 import Welcome from './Welcome.vue'
 
 const template = html`
-  <div>
-    <Welcome name="Guest" />
-    <hr />
-    <button @click="inc">{{ count }}</button>
-  </div>
+  <template>
+    <div>
+      <Welcome name="Guest" />
+      <hr />
+      <button @click="inc">{{ count }}</button>
+    </div>
+  </template>
 
   <style scoped>
     h1 {

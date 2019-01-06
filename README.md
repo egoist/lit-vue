@@ -57,11 +57,13 @@ Now with `lit-html` you can use `.js` and `.ts` extensions:
 import { html } from 'lit-vue'
 
 html`
-  <div>
-    <h1>hello</h1>
-    <hr />
-    <button @click="inc">{{ count }}</button>
-  </div>
+  <template>
+    <div>
+      <h1>hello</h1>
+      <hr />
+      <button @click="inc">{{ count }}</button>
+    </div>
+  </template>
 
   <style scoped>
     h1 {
@@ -102,7 +104,9 @@ ESLint might complain about the the <code>html&#x60;&#x60;</code> expression not
 
 ```js
 export const template = html`
-  <div>{{ count }}</div>
+  <template>
+    <div>{{ count }}</div>
+  </template>
 `
 ```
 
@@ -112,7 +116,9 @@ You can just assign it to a variable and export it, though the exported variable
 
 ```js
 const template = html`
-  <div>{{ count }}</div>
+  <template>
+    <div>{{ count }}</div>
+  </template>
 `
 
 export default {
@@ -165,24 +171,59 @@ module.exports = {
 
 That's it, [all the goodies](https://vue-loader.vuejs.org/) of `.vue` SFC are available in your `.vue.js` and `.vue.ts` files now!
 
-### Custom blocks
+### Optional `<template>` element
 
-You can also use [custom blocks](https://vue-loader.vuejs.org/guide/custom-blocks.html) in the `html` tag:
+`<template>` inside `html` is optional:
 
 ```js
 html`
-  <custom-block name="i18n"> { "en": {} } </custom-block>
+  <h1>hello</h1>
+`
+
+// or
+
+html`
+  <template>
+    <h1>hello</h1>
+  </template>
 `
 ```
 
-It will be converted to:
+When using templates without `<template>` tag, you have to use `<custom-block>` element to define custom blocks:
 
-```vue
-<i18n>
-{
-  "en": {}
+```js
+html`
+  <h1>hello</h1>
+
+  <custom-block name="i18n"> {"en": {}} </custom-block>
+`
+
+// or
+
+html`
+  <template>
+    <h1>hello</h1>
+  </template>
+
+  <i18n> {"en": {}} </i18n>
+`
+```
+
+And in fact even the whole Vue template is optional in `html` tag, you can just use `<style>` and custom blocks with render function instead:
+
+```js
+html`
+  <style scoped lang="sass">
+    h1
+      color: red
+  </style>
+`
+
+export default {
+  render(h) {
+    return h('h1', null, ['hello'])
+  }
 }
-</i18n>
 ```
 
 ### Syntax higlighting

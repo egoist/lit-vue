@@ -2,14 +2,7 @@
 
 exports[`simple 1`] = `
 "
-  <template>
-  
-  <div></div>
-  
-
-  
-  
-  </template>
+  <template><div></div></template>
 
   <script lang=\\"ts\\">
   const template: string = undefined;
