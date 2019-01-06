@@ -212,16 +212,31 @@ html`
 And in fact even the whole Vue template is optional in `html` tag, you can just use `<style>` and custom blocks with render function instead:
 
 ```js
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import { html } from 'lit-vue'
+
 html`
-  <style scoped lang="sass">
-    h1
-      color: red
+  <style scoped>
+    .msg {
+      color: red;
+    }
   </style>
 `
 
-export default {
-  render(h) {
-    return h('h1', null, ['hello'])
+@Component({
+  props: {
+    name: String
+  }
+})
+export default class Welcome extends Vue {
+  // computed
+  get message() {
+    return 'hello ' + this.name
+  }
+
+  render() {
+    return <div class="msg">{this.message}</div>
   }
 }
 ```
