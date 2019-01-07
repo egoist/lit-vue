@@ -52,7 +52,7 @@ h1 {
 </style>
 ```
 
-Now with `lit-html` you can use `.js` and `.ts` extensions:
+Now with `lit-vue` you can use `.js` and `.ts` extensions:
 
 ```js
 import { html } from 'lit-vue'
